@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{project.title}}</h1>
+<img src="{% static project.image %}" alt="image of project">
+<p>{{project.description}}</p>
+<p>{{project.technology}}</p>
+
+</body>
+</html>
