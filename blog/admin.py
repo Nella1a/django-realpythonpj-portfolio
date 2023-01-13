@@ -1,8 +1,16 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Posts
-from .models import Category
+from blog.models import Posts
+from blog.models import Category
 
-admin.site.register(Posts)
-admin.site.register(Category)
+
+
+class PostsAdmin(admin.ModelAdmin):
+    pass
+
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Posts, PostsAdmin)
+admin.site.register(Category, CategoryAdmin)
