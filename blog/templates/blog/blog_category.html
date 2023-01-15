@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<h1>{{ category.name }}</h1>
+{% for post in posts %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <div>
+            <p>{{ post.last_update }}</p>
+            <p>{{ post.text }}</p>
+        </div>
+    </article>
+{% endfor %}
+{% endblock %}

@@ -34,11 +34,11 @@ def blog_detail(request, pk):
 
 def blog_category(request, category):
     posts = Posts.objects.filter(category__name__contains=category).order_by(
-        '-created_on'
+        '-created'
     )
 
     context = {
         'category': category,
         'posts': posts
     }
-    return render(request, "blog_category.html", context)
+    return render(request, "blog/blog_category.html", context)

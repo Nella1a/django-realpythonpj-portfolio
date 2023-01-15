@@ -8,5 +8,5 @@ app_name = "blog"
 urlpatterns = [
     path("", blog_index, name="all_posts"),
     path("<int:pk>/", blog_detail, name="blog_detail"),
-    path("category/", blog_category, name="blog_category")
+    path("<category>/", blog_category, name="blog_category")
 ]

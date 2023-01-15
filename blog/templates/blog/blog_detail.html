@@ -1,11 +1,22 @@
 {% extends 'portfolio/base.html' %}
 
 {% block content %}
-<h1>{{ post.category }}</h1>
+
+<h1>
+    {% for category in post.category.all %}
+    {{ category.name }}
+    {% endfor %}
+</h1>
+
     <article>
         <h2>{{ post.title }}</h2>
         <div>
-            <p>{{ post.last_update }} | Categories: {{ post.category }} </p>
+            <p>{{ post.last_update }} |
+                Categories:
+                   {% for category in post.category.all %}
+                  <a href="{% url 'blog:blog_category' category.name %}">{{ category.name }} </a>
+                    {% endfor %}
+            </p>
             <p>{{ post.text }}</p>
         </div>
     </article>
