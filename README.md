@@ -1,7 +1,9 @@
 # Django Portfolio and Blog App 
 Tutorial: https://realpython.com/get-started-with-django-1/
 
-Learnded how to:
+# Objectives
+
+Learn how to:
 
 - create Django projects and apps
 - add web pages with views and templates
