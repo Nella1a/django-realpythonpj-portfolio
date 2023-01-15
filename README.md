@@ -1,4 +1,4 @@
-# django-realpythonpj-portfolio
+# Django Portfolio and Blog App 
 Tutorial: https://realpython.com/get-started-with-django-1/
 
 Learnded how to:
