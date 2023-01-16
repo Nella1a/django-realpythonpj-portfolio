@@ -1,12 +1,31 @@
 from django.shortcuts import render
 from blog.models import Posts, Comments
-from .forms import CommentForm
+from .forms import CommentForm, PostsForm
 # Create your views here.
-
+import datetime
 
 def blog_index(request):
+
+    form = PostsForm()
+    if request.method == 'POST':
+        form = PostsForm(request.POST)
+        if form.is_valid():
+            new_post = Posts(
+                title=form.cleaned_data["title"],
+                text=form.cleaned_data["text"],
+                created=datetime.datetime.now(),
+                last_update=datetime.datetime.now(),
+            )
+
+            new_post.save()
+            new_post.category.set(form.cleaned_data["category"])
+            new_post.save()
+
     all_posts = Posts.objects.all().order_by('-created')
-    context = {'posts': all_posts}
+
+    context = {'posts': all_posts,
+               'form': form}
+
     return render(request, 'blog/blog_index.html', context)
 
 def blog_detail(request, pk):

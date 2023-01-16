@@ -21,6 +21,22 @@
     </small>
     <p>{{ post.text | slice:":100" }} ... </p>
     {% endfor %}
+   <h3>Add new Post:</h3>
+    <form action="/blog/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            {{ form.text }}
+        </div>
+          <div class="form-group">
+            {{ form.category }}
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 {% endblock %}
 
